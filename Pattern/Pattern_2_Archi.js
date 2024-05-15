@@ -1,11 +1,12 @@
 let x = 0;
 let y = 0;
-let spacing = 25;
+let spacing = 30;
 let value = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(0);
+  //background(31, 149, 172);
+  background(247, 178, 118);
   ellipseMode(CORNER);
   angleMode(DEGREES);
 }
@@ -18,8 +19,8 @@ function print10() {
 
   value = random(1);
   noFill();
-  strokeWeight(2);
-  stroke(0, 255, 255);
+  strokeWeight(3);
+  stroke(31, 149, 172);
 
   if (value <= 0.25) {
     arc(x, y, spacing, spacing, 0, 270);
