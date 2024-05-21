@@ -28,7 +28,7 @@ function draw() {
   hVar = 10 - int(random(2)*10)
   //console.log(hVar)
 
-// creo triangolo e arco
+// draw triangolo e arco con swithc e case al posto di else if, else
   switch(disc){
     case 0:
       rectMode(CORNER)
