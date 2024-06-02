@@ -1,6 +1,6 @@
 let x = 0;
 let y = 0;
-let spacing = 30;
+let spacing = 50;
 let value = 0;
 
 function setup() {
