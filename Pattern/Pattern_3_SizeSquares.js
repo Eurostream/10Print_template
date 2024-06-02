@@ -1,3 +1,4 @@
+// Variabili globali
 let x = 0;
 let y = 0;
 let squareSize = 10;
@@ -5,34 +6,33 @@ let xSpacing = 50;
 let ySpacing;
 let drawShape = true;
 
+
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background(255);
-  ySpacing = windowHeight / 10; // spacing iniziale
+  createCanvas(windowWidth, windowHeight);  // Crea una tela delle dimensioni della finestra
+  background(255);  // Imposta il colore di sfondo su bianco
+  ySpacing = windowHeight / 10;  // Spaziatura verticale iniziale
 }
+
 
 function draw() {
   if (drawShape) {
-    // disegna un quadrato nero
     fill(0);
-    rectMode(CENTER);
-    push();
-    translate(x + xSpacing / 2, y + squareSize / 2);
-    rotate(PI / 4); // Ruota 45°
-    rect(0, 0, squareSize, squareSize, 5); // raggio bevel angoli
-    pop();
+    rectMode(CENTER);  // Imposto la modalità di disegno dei rettangoli al centro
+    push();  // Salva lo stato di trasformazione
+    translate(x + xSpacing / 2, y + squareSize / 2);  // Trasla il sistema di coordinate
+    rotate(PI / 4);  // Ruota il sistema di coordinate di 45°
+    rect(0, 0, squareSize, squareSize, 5); //quadrato con Bevel
+    pop();  // Ripristina lo stato di trasformazione precedente
   }
 
-
-  // loop per 10print
+  //formula animazione 10print
   x += xSpacing;
   if (x > windowWidth) {
     x = 0;
     y += ySpacing;
-    // Increase square size
-    squareSize += 10;
+    squareSize += 10;  // Aumenta la dimensione del quadrato
   }
 
-  // switch per disegnare o no
+  // Alterna il valore di drawShape per decidere se disegnare o meno il prossimo quadrato
   drawShape = !drawShape;
 }

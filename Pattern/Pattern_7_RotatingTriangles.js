@@ -8,20 +8,19 @@ function setup() {
 }
 
 function draw() {
-  // Draw a black right triangle
   fill(41);
   noStroke();
-  translate(x + spacing / 2, y + spacing / 2); // Move to the center of the current cell
+  translate(x + spacing / 2, y + spacing / 2); // trasla origine nell'altra cella
 
-  // Randomly rotate by 0, 90, 180, or 270 degrees
+  // Ruota a caso tra 0,90,180,270
   let rotations = [0, HALF_PI, PI, PI + HALF_PI];
   let rotation = random(rotations);
   rotate(rotation);
 
-  // Draw the right triangle
+  // Disegno il triangolo
   triangle(-spacing/2, spacing/2, spacing/2, spacing/2, -spacing/2, -spacing/2);
 
-  // Move x position
+  // Animazione 10print
   x += spacing;
   if (x > width) {
     x = 0;
