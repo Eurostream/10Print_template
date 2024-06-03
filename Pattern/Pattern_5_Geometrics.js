@@ -47,7 +47,7 @@ function draw() {
 
   // Animazione: muove a destra e poi va a capo
   x += spacing;
-  if (x > width-spacing*1.5) {
+  if (x > width-spacing*2) {
     x = 0;
     y += spacing;
   }
