@@ -7,8 +7,8 @@ function setup() {
 let x = 0;
 let y = 0;
 let spacing = 100;
-let disc = 0;
-let hVar = 0;
+let disc = 0; //variabile numero intero per scelta del caso
+let hVar = 0; //variabile per l'altezza
 
 
 function draw() {
@@ -23,8 +23,8 @@ function draw() {
   rect(0, 0, spacing);
 
   fill(41);
-  let a = (int(random(16)) % 4);  // Genera un numero casuale per la rotazione del rettangolo
-  rotate(2 * PI * a / 4);  // Ruota il rettangolo
+  let randRot = (int(random(16)) % 4);  // Genera un numero casuale per la rotazione del rettangolo
+  rotate(2 * PI * randRot / 4);  // Ruota il rettangolo
 
   disc = int(random(4)) % 4;  // Genera un numero casuale per determinare quale forma disegnare
   hVar = 10 - int(random(2) * 10);  // Genera una variazione casuale per l'altezza
@@ -47,8 +47,12 @@ function draw() {
 
   // Animazione: muove a destra e poi va a capo
   x += spacing;
-  if (x > width-spacing*2) {
+  if (x > width-spacing) {
     x = 0;
     y += spacing;
+  }
+    if (y > height-spacing*2) { 
+    noLoop();
+    console.log("altezza raggiunta");
   }
 }

@@ -1,60 +1,68 @@
 //link: https://www.youtube.com/watch?v=bEyTZ5ZZxZs
 
 //variabili globali
-let x = 0
+let x = 0;
 let y = 0;
-let spacing = 50
-let arcSize = 100
+let arcSize;
+let cols = 7;
 
 
 //creo un canvas di una grandezza adattabile alla finestra, bianco (255) o nero (0)
 function setup() {
   createCanvas(windowWidth, windowHeight);  
   background(255);
+  arcSize = width/cols
 }
 
 //creo le figure, con line faccio la slash con rect un rettangolo/quadrato
 function draw() {
   
-    disc = int(random(5)) % 10;  // Genera un numero casuale per determinare quale forma disegnare
-  switch(disc) {
-    
-    case 0:
+  strokeWeight(0);
+  
+
+  value = random(1);
+  //funzione random
+  if (value <= 0.2) {
     // Arco Rosso 
     fill(247, 70, 79);
     arc(x, y, arcSize, arcSize, radians(0), radians(90));
-    break;
+
    
-    case 1:
-    // Solo Arco Arancio
+  } else if (value > 0.2 && value <= 0.4) {
+    //Arco Arancio
     fill(255, 163, 0);
-    arc(x+spacing, y, arcSize, arcSize, radians(90), radians(180));
-    break;
+    arc(x+arcSize/2, y, arcSize, arcSize, radians(90), radians(180));
+
    
-    case 2:
-    // Altro Arco Blu
+  } else if (value > 0.4 && value <= 0.6) {
+    //Arco Blu
     fill(64, 88, 188);
-    arc(x, y+spacing, arcSize, arcSize, radians(180), radians(270));
-    break;
+    arc(x+arcSize/2, y+arcSize/2, arcSize, arcSize, radians(180), radians(270));
+
    
-    case 3:
-    // Altro Quadrato Blu
+  } else if (value > 0.6 && value <= 0.8) {
+    //Quadrato Blu
     fill(64, 88, 188);
-    square (x,y, spacing)
-    break;
+    square (x,y, arcSize/2);
+
     
-    case 4:
-    // Altro cerchio
-    fill(255);
-    circle (x+spacing/2, y+spacing/2, spacing)
-    break;  // Non disegna nulla
+  } else if (value > 0.8 && value <= 1) {
+    //Cerchio nero
+    fill(36);
+    circle (x+arcSize/4, y+arcSize/4, arcSize/2);
+
 }
   
   
 //ogni frame si muove di "spacing" punti
-  x = x+spacing
+  x = x+arcSize/2;
   if (x > width) { 
-    x = 0           //resetta a 0 la x quando è maggiore della width del canvas
-    y = y + spacing //spacing tra le right
+    x = 0  ;         //resetta a 0 la x quando è maggiore della width del canvas
+    y = y + arcSize/2; //spacing tra le right
   }
+  
+  if (y > height) { 
+    noLoop();
+    console.log("altezza raggiunta")
+   }
 }

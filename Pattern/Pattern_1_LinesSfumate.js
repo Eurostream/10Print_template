@@ -1,13 +1,15 @@
 //variabili globali
 let x = 0;
 let y = 0;
-let spacing = 20; //spazio tra uno slash e l'altro
+let spacing; //dichiarato dal rapporto nel setup()
 let hueMax = 255; // valore massimo hue
+let cols = 25
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   colorMode(HSB, 255, 100, 100); //differente modo colori per esperimento
   background(0);
+  spacing=width/cols
 }
 
 function draw() {
@@ -30,5 +32,10 @@ function draw() {
   if (x > width) {  //se la x supera la larghezza del canvas
     x = 0;          //resetta a 0 la x
     y = y + spacing; //e scendi y+spacing
+  }
+    
+    if (y > height) { 
+    noLoop();
+    console.log("altezza raggiunta");
   }
 }

@@ -26,13 +26,18 @@ function draw() {
   }
 
   //formula animazione 10print
-  x += xSpacing;
+  x = x + xSpacing;
   if (x > windowWidth) {
     x = 0;
     y += ySpacing;
-    squareSize += 10;  // Aumenta la dimensione del quadrato
+    squareSize += 17;  // Aumenta la dimensione del quadrato
   }
 
   // Alterna il valore di drawShape per decidere se disegnare o meno il prossimo quadrato
   drawShape = !drawShape;
+  
+  if (y > height) { 
+  noLoop();
+  console.log("altezza raggiunta");
+  }
 }

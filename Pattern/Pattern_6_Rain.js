@@ -1,17 +1,18 @@
 let x = 0;  // Coordinata x iniziale
 let y = 0;  // Coordinata y iniziale
-let spacing = 30;  // Valore che determina lo spazio tra uno slash e l'altro
-
+let spacing;
+let cols = 25;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
+  spacing = width/cols
 }
 
 
 function draw() {
-  stroke(255);
-  fill(230, 130, 30);
+  strokeWeight(3)
+  stroke(43, 118, 207);
   
   //con un solo if il codice disegna o no una linea nella direzione specificata
   if (random(1) < 0.5) {
@@ -26,5 +27,10 @@ function draw() {
   if (x > width) {
     x = 0;
     y = y + spacing;
+  }
+  
+  if (y > height) { 
+  noLoop();
+  console.log("altezza raggiunta");
   }
 }
