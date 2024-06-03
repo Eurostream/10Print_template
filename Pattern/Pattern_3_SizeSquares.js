@@ -30,7 +30,7 @@ function draw() {
   if (x > windowWidth) {
     x = 0;
     y += ySpacing;
-    squareSize += 17;  // Aumenta la dimensione del quadrato
+    squareSize += 15;  // Aumenta la dimensione del quadrato
   }
 
   // Alterna il valore di drawShape per decidere se disegnare o meno il prossimo quadrato
